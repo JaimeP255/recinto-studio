@@ -510,82 +510,21 @@ function BotonMenu({ text, activo, onClick }) {
 
 const VistaInicio = ({ setPaginaActual }) => {
   return (
-    <div
-      className="animacion-recinto"
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        minHeight: '60vh',
-        width: '100%',
-        boxSizing: 'border-box',
-      }}
-    >
-      <header
-        className="header-principal"
-        style={{
-          padding: '100px 40px 100px 40px',
-          maxWidth: '800px',
-          margin: '0 auto',
-          textAlign: 'center',
-          width: '100%',
-          boxSizing: 'border-box',
-        }}
-      >
-        <h1
-          style={{
-            fontSize: '76px',
-            fontWeight: '900',
-            letterSpacing: '16px',
-            marginRight: '-16px',
-            color: PALETA.textoOscDark,
-            marginBottom: '10px',
-            lineHeight: '1',
-          }}
-        >
-          RECINTO
-          <sup
-            style={{
-              fontSize: '24px',
-              verticalAlign: 'super',
-              fontWeight: '500',
-              marginLeft: '2px',
-            }}
-          >
-            ®
-          </sup>
+    <div className="animacion-recinto" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', minHeight: '60vh', width: '100%', boxSizing: 'border-box' }}>
+      <header className="header-principal" style={{ padding: '100px 40px 100px 40px', maxWidth: '800px', margin: '0 auto', textAlign: 'center', width: '100%', boxSizing: 'border-box' }}>
+        <h1 style={{ fontSize: '76px', fontWeight: '900', letterSpacing: '16px', marginRight: '-16px', color: PALETA.textoOscDark, marginBottom: '10px', lineHeight: '1' }}>
+          RECINTO<sup style={{ fontSize: '24px', verticalAlign: 'super', fontWeight: '500', marginLeft: '2px' }}>®</sup>
         </h1>
-        <h2
-          style={{
-            fontSize: '13px',
-            fontWeight: '700',
-            letterSpacing: '6px',
-            color: PALETA.oliva,
-            textTransform: 'uppercase',
-            margin: '0 0 60px 0',
-          }}
-        >
+        <h2 style={{ fontSize: '13px', fontWeight: '700', letterSpacing: '6px', color: PALETA.oliva, textTransform: 'uppercase', margin: '0 0 60px 0' }}>
           Grooming Studio — Daniel Barber
         </h2>
-        <p
-          style={{
-            color: PALETA.textoOscDark,
-            fontSize: '26px',
-            fontWeight: '800',
-            lineHeight: '1.4',
-            textTransform: 'uppercase',
-            margin: '15px 0 60px 0',
-            letterSpacing: '1px',
-          }}
-        >
-          "Frenar el tiempo.
-          <br />
-          esculpir el ritual."
+        
+        {/* 🎯 FRASE ACTUALIZADA */}
+        <p style={{ color: PALETA.textoOscDark, fontSize: '26px', fontWeight: '800', lineHeight: '1.4', textTransform: 'uppercase', margin: '15px 0 60px 0', letterSpacing: '1px' }}>
+          "TAKE YOUR TIME."
         </p>
-        <div
-          style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
-        >
-          {/* 🎯 BOTÓN CTA CON LAS CLASES INTERACTIVAS CSS CARGADAS */}
+
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
           <button
             className="boton-principal-cta"
             onClick={() => setPaginaActual('servicios')}
@@ -593,20 +532,7 @@ const VistaInicio = ({ setPaginaActual }) => {
             RESERVAR SERVICIO
           </button>
         </div>
-        <div
-          className="lema-inferior"
-          style={{
-            fontSize: '11px',
-            fontWeight: '700',
-            letterSpacing: '6px',
-            color: PALETA.oliva,
-            textTransform: 'uppercase',
-            borderTop: `1px solid rgba(244, 244, 242, 0.15)`,
-            paddingTop: '35px',
-            maxWidth: '450px',
-            margin: '100px auto 0 auto',
-          }}
-        >
+        <div className="lema-inferior" style={{ fontSize: '11px', fontWeight: '700', letterSpacing: '6px', color: PALETA.oliva, textTransform: 'uppercase', borderTop: `1px solid rgba(244, 244, 242, 0.15)`, paddingTop: '35px', maxWidth: '450px', margin: '100px auto 0 auto' }}>
           EXCELENCIA • TRADICIÓN • IDENTIDAD
         </div>
       </header>
