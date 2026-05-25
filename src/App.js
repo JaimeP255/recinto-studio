@@ -1042,6 +1042,21 @@ const VistaContacto = () => {
   );
 };
 
+const VistaPrivacidad = () => (
+  <section className="animacion-recinto" style={{ padding: '80px 20px', maxWidth: '800px', margin: '0 auto', color: PALETA.textoOscDark }}>
+    <h2 style={{ fontSize: '24px', marginBottom: '20px' }}>Política de Privacidad</h2>
+    <p style={{ lineHeight: '1.6', marginBottom: '15px' }}>
+      En RECINTO® valoramos tu privacidad. Esta web no utiliza cookies de rastreo, no recopila datos personales de los usuarios ni utiliza servicios de análisis de terceros.
+    </p>
+    <p style={{ lineHeight: '1.6', marginBottom: '15px' }}>
+      Los datos compartidos a través de los enlaces de WhatsApp (nombre, teléfono o mensaje) son gestionados directamente por el titular de la barbería bajo su propia responsabilidad, utilizándose exclusivamente para la gestión de citas.
+    </p>
+    <p style={{ lineHeight: '1.6' }}>
+      Para cualquier consulta sobre tus datos, puedes ponerte en contacto directamente en el local.
+    </p>
+  </section>
+);
+
 export default function App() {
   const [paginaActual, setPaginaActual] = useState('inicio');
 
@@ -1230,6 +1245,7 @@ export default function App() {
         {paginaActual === 'servicios' && <VistaServices />}
         {paginaActual === 'nosotros' && <VistaNosotros />}
         {paginaActual === 'contacto' && <VistaContacto />}
+        {paginaActual === 'privacidad' && <VistaPrivacidad />}
       </main>
 
       <div
@@ -1243,21 +1259,16 @@ export default function App() {
           zIndex: 10,
         }}
       >
-        <footer
-          style={{
-            padding: '55px 20px',
-            textAlign: 'center',
-            color: PALETA.textoOscDark,
-            fontSize: '11px',
-            letterSpacing: '3px',
-            textTransform: 'uppercase',
-            fontWeight: '700',
-            width: '100%',
-            boxSizing: 'border-box',
-          }}
-        >
-          RECINTO GROOMING STUDIO © 2026. VALENCIA.
-        </footer>
+        <footer style={{ padding: '55px 20px', textAlign: 'center', color: PALETA.textoOscDark, fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase', fontWeight: '700', width: '100%', boxSizing: 'border-box' }}>
+  <p>RECINTO GROOMING STUDIO © 2026. VALENCIA.</p>
+  {/* 🎯 Enlace discreto al final */}
+  <button 
+    onClick={() => setPaginaActual('privacidad')} 
+    style={{ background: 'none', border: 'none', color: PALETA.oliva, cursor: 'pointer', fontSize: '9px', marginTop: '10px', textDecoration: 'underline' }}
+  >
+    Política de Privacidad
+  </button>
+</footer>
       </div>
     </div>
   );
