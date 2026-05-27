@@ -1215,7 +1215,7 @@ export default function App() {
               onClick={() => setPaginaActual('servicios')}
             />
             <BotonMenu
-              text="Nosotros"
+              text="El Espacio"
               activo={paginaActual === 'nosotros'}
               onClick={() => setPaginaActual('nosotros')}
             />
