@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 
 /**
  * PALETA EDITORIAL RECINTO® MONOCROMO PURA
@@ -1268,6 +1269,7 @@ export default function App() {
   </button>
 </footer>
       </div>
+      <Analytics />
     </div>
   );
 }
