@@ -363,120 +363,25 @@ function BloqueVisual({
   );
 }
 
-function FilaServicioEditorial({
-  nombre,
-  precio,
-  duracion,
-  imagen,
-  msgWhatsapp,
-}) {
-  const [hover, setHover] = useState(false);
-  const urlTriangle = `https://wa.me/34603166018?text=${encodeURIComponent(
-    msgWhatsapp
-  )}`;
-
+function FilaServicioEditorial({ nombre, precio, duracion, imagen }) {
   return (
-    <a
-      href={urlTriangle}
-      target="_blank"
-      rel="noopener noreferrer"
+    <div
       className="fila-servicio-editorial"
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
       style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '35px 0',
-        borderBottom: `1px solid rgba(244, 244, 242, 0.15)`,
-        width: '100%',
-        transition: 'all 0.4s ease',
-        cursor: 'pointer',
-        gap: '40px',
-        boxSizing: 'border-box',
-        textDecoration: 'none',
-        color: 'inherit',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        padding: '35px 0', borderBottom: `1px solid rgba(244, 244, 242, 0.15)`,
+        width: '100%', gap: '40px', boxSizing: 'border-box',
       }}
     >
-      <div
-        className="editorial-imagen-wrapper"
-        style={{
-          width: '90px',
-          height: '90px',
-          backgroundColor: PALETA.beigeOscuro,
-          overflow: 'hidden',
-          flex: '0 0 90px',
-          transform: hover ? 'scale(1.04)' : 'scale(1)',
-          transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
-        }}
-      >
-        <img
-          src={imagen}
-          alt={nombre}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          onError={(e) => {
-            e.target.style.backgroundColor = PALETA.beigeOscuro;
-          }}
-        />
+      <div className="editorial-imagen-wrapper" style={{ width: '90px', height: '90px', backgroundColor: PALETA.beigeOscuro, flex: '0 0 90px' }}>
+        <img src={imagen} alt={nombre} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
       </div>
-
-      <div
-        className="editorial-texto-bloque"
-        style={{ flex: 1, textAlign: 'left' }}
-      >
-        <h3
-          style={{
-            fontSize: '20px',
-            fontWeight: '800',
-            color: hover ? PALETA.terracota : PALETA.textoOscDark,
-            margin: '0 0 6px 0',
-            letterSpacing: '1px',
-            textTransform: 'uppercase',
-            transition: 'color 0.3s ease',
-          }}
-        >
-          {nombre}
-        </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          <span
-            style={{
-              fontSize: '11px',
-              color: PALETA.oliva,
-              fontWeight: '600',
-              letterSpacing: '0.5px',
-              textTransform: 'uppercase',
-            }}
-          >
-            ⏳ ~ {duracion} min
-          </span>
-          <span
-            style={{
-              fontSize: '11px',
-              color: hover ? PALETA.terracota : PALETA.oliva,
-              fontWeight: '700',
-              letterSpacing: '1px',
-              textTransform: 'uppercase',
-              transition: 'color 0.3s ease',
-            }}
-          >
-            → clicka aqui para reservar por whatsapp
-          </span>
-        </div>
+      <div className="editorial-texto-bloque" style={{ flex: 1, textAlign: 'left' }}>
+        <h3 style={{ fontSize: '20px', fontWeight: '800', color: PALETA.textoOscDark, margin: '0 0 6px 0', textTransform: 'uppercase' }}>{nombre}</h3>
+        <span style={{ fontSize: '11px', color: PALETA.oliva, fontWeight: '600' }}>⏳ ~ {duracion} min</span>
       </div>
-
-      <div
-        className="editorial-precio"
-        style={{
-          fontSize: '26px',
-          fontWeight: '900',
-          color: hover ? PALETA.terracota : PALETA.textoOscDark,
-          letterSpacing: '1px',
-          transition: 'color 0.3s ease',
-        }}
-      >
-        {precio}€
-      </div>
-    </a>
+      <div className="editorial-precio" style={{ fontSize: '26px', fontWeight: '900', color: PALETA.textoOscDark }}>{precio}€</div>
+    </div>
   );
 }
 
@@ -581,17 +486,15 @@ const VistaInicio = ({ setPaginaActual }) => {
         >
           "Take your time."
         </p>
-        <div
-          style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
-        >
-          {/* 🎯 BOTÓN CTA CON LAS CLASES INTERACTIVAS CSS CARGADAS */}
-          <button
-            className="boton-principal-cta"
-            onClick={() => setPaginaActual('servicios')}
-          >
-            RESERVAR SERVICIO
-          </button>
-        </div>
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+  {/* 🎯 BOTÓN CTA: Cambia el 'onClick' para que lleve a 'servicios' */}
+  <button
+    className="boton-principal-cta"
+    onClick={() => setPaginaActual('servicios')}
+  >
+    RESERVAR SERVICIO
+  </button>
+</div>
         <div
           className="lema-inferior"
           style={{
@@ -641,27 +544,31 @@ const VistaServices = () => {
           Price List
         </h2>
 
-        <div
-          className="subtitulo-reserva-linea"
-          style={{
-            fontSize: '12px',
-            fontWeight: '700',
-            color: PALETA.oliva,
-            letterSpacing: '2px',
-            textTransform: 'uppercase',
-            margin: '0 auto 25px auto',
-            maxWidth: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '6px',
-            alignItems: 'center',
-          }}
-        >
-          <span>↓</span>
-          <span style={{ textAlign: 'center' }}>
+        {/* CONTENEDOR DEL BOTÓN ÚNICO DE RESERVA */}
+        <div style={{ textAlign: 'center', marginTop: '30px' }}>
+          <p
+            className="subtitulo-reserva-linea"
+            style={{
+              fontSize: '12px',
+              fontWeight: '700',
+              color: PALETA.oliva,
+              letterSpacing: '2px',
+              textTransform: 'uppercase',
+              marginBottom: '30px',
+            }}
+          >
             Escoge tu servicio y reserva aqui
-          </span>
-          <span>↓</span>
+          </p>
+          
+          <a
+            href="https://booksy.com/es-es/183610_recinto-r-grooming-studio_barberia_58087_valencia#ba_s=sh_1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="boton-principal-cta"
+            style={{ textDecoration: 'none', display: 'inline-block' }}
+          >
+            RESERVAR CITA AHORA
+          </a>
         </div>
       </header>
 
@@ -677,28 +584,24 @@ const VistaServices = () => {
           precio={16}
           duracion={35}
           imagen={FOTOS_RECINTO.servicioFade}
-          msgWhatsapp="Hola quiero reservar un corte en recinto"
         />
         <FilaServicioEditorial
           nombre="Fade + Beard"
           precio={21}
           duracion={45}
           imagen={FOTOS_RECINTO.servicioCombo}
-          msgWhatsapp="Hola quiero reservar corte y barba en recinto"
         />
         <FilaServicioEditorial
           nombre="Beard Trim"
           precio={12}
           duracion={15}
           imagen={FOTOS_RECINTO.servicioBarba}
-          msgWhatsapp="Hola quiero reservar para barba en recinto"
         />
         <FilaServicioEditorial
           nombre="Traditional Shave"
           precio={20}
           duracion={25}
           imagen={FOTOS_RECINTO.servicioAfeitado}
-          msgWhatsapp="Hola quiero reservar un afeitado tradicional en recinto"
         />
       </div>
     </section>
@@ -753,7 +656,27 @@ const VistaNosotros = () => (
 
 const VistaContacto = () => {
   const urlWhatsappContacto =
-    'https://wa.me/34603166018?text=Quiero%20reservar%20en%20Recinto';
+  <p
+  style={{
+    fontWeight: '600',
+    color: PALETA.textoOscDark,
+    margin: '10px 0',
+  }}
+>
+  <span className="emoji-monocromo">📅</span>Reservas:{' '}
+  <a
+    href="https://booksy.com/es-es/183610_recinto-r-grooming-studio_barberia_58087_valencia#ba_s=sh_1"
+    target="_blank"
+    rel="noreferrer"
+    style={{
+      color: PALETA.textoOscDark,
+      textDecoration: 'none',
+      fontWeight: '800',
+    }}
+  >
+    Booksy
+  </a>
+</p>
 
   const comprobarDisponibilidad = () => {
     const ahora = new Date();
